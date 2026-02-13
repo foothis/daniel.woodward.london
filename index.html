@@ -1,12 +1,202 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Daniel Woodward</title>
-  </head>
-  <body style="font-family: system-ui; padding: 40px;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daniel Woodward | AI Presales & Solutions Architecture</title>
+  <meta name="description" content="UK-based Presales Leader specialising in AI, Enterprise Solutions, Strategy & Consulting." />
+  <meta property="og:title" content="Daniel Woodward" />
+  <meta property="og:description" content="Sales, Solutions Architecture, Consulting & Partnerships." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #0f172a;
+      --card: #111827;
+      --accent: #6366f1;
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --border: #1f2937;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+
+    section {
+      padding: 80px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    h1 { font-size: 3rem; font-weight: 800; }
+    h2 { font-size: 2rem; margin-bottom: 40px; }
+    h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    p { color: var(--muted); }
+
+    .hero {
+      text-align: center;
+      padding: 140px 20px 100px;
+      background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-top: 16px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 24px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      transition: 0.2s ease;
+    }
+
+    .btn:hover {
+      opacity: 0.85;
+    }
+
+    .grid {
+      display: grid;
+      gap: 30px;
+    }
+
+    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
+    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+
+    .card {
+      background: var(--card);
+      padding: 25px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      transition: 0.2s ease;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+    }
+
+    .timeline {
+      border-left: 2px solid var(--border);
+      padding-left: 25px;
+    }
+
+    .timeline-item {
+      margin-bottom: 40px;
+    }
+
+    .muted { color: var(--muted); font-size: 0.9rem; }
+
+    footer {
+      text-align: center;
+      padding: 60px 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 2.2rem; }
+      section { padding: 60px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="hero">
     <h1>Daniel Woodward</h1>
-    <p>Site coming soon.</p>
-  </body>
+    <p>Sales · Solutions Architecture · AI · Consulting & Partnerships</p>
+    <a href="https://www.linkedin.com/in/dpwoodward/" class="btn" target="_blank">Connect on LinkedIn</a>
+  </div>
+
+  <section>
+    <h2>About</h2>
+    <p>
+      UK-based Presales Leader specialising in AI, enterprise solution architecture, and strategic consulting.
+      I partner with global organisations to translate complex technology into tangible business outcomes,
+      bridging sales, product, and customer success to drive growth and innovation.
+    </p>
+  </section>
+
+  <section>
+    <h2>Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Senior Solutions Consultant – IBM (Apptio)</h3>
+        <div class="muted">2024 – Present</div>
+      </div>
+      <div class="timeline-item">
+        <h3>Enterprise Solutions Architect – Quantive</h3>
+        <div class="muted">2021 – 2024</div>
+      </div>
+      <div class="timeline-item">
+        <h3>Global Strategic Accounts Consultant – Sprinklr</h3>
+        <div class="muted">2016 – 2020</div>
+      </div>
+      <div class="timeline-item">
+        <h3>Director & Freelance Consultant – Lupine Consulting</h3>
+        <div class="muted">2014 – Present</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Core Expertise</h2>
+    <div class="grid grid-3">
+      <div class="card">AI & Machine Learning Strategy</div>
+      <div class="card">Enterprise Architecture</div>
+      <div class="card">Strategic Presales</div>
+      <div class="card">CX & Digital Transformation</div>
+      <div class="card">Executive Workshops</div>
+      <div class="card">Solution Consulting</div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Awards & Recognition</h2>
+    <div class="grid grid-2">
+      <div class="card">
+        <h3>Presales of the Year</h3>
+        <div class="muted">Sprinklr Global Sales Awards</div>
+      </div>
+      <div class="card">
+        <h3>President’s Club</h3>
+        <div class="muted">Sprinklr (2017, 2020)</div>
+      </div>
+      <div class="card">
+        <h3>Guiding Principles Award</h3>
+        <div class="muted">Quantive</div>
+      </div>
+      <div class="card">
+        <h3>Quarterly Global Pre-Sales Awards</h3>
+        <div class="muted">Sprinklr</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Get In Touch</h2>
+    <p>Email: <a href="mailto:daniel@woodward.london">daniel@woodward.london</a></p>
+    <p>Phone: +44 (0) 7896 504 471</p>
+  </section>
+
+  <footer>
+    © 2026 Daniel Woodward · Built with GitHub Pages
+  </footer>
+
+</body>
 </html>
