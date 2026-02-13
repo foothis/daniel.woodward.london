@@ -78,6 +78,13 @@
       transition: .18s ease;
     }
     a:hover{ transform: translateY(-1px); }
+
+    .fade-out {
+  opacity: 0;
+  transform: translateY(-10px);
+  filter: blur(6px);
+  transition: all 0.6s ease;
+}
   </style>
 </head>
 <body>
@@ -93,24 +100,30 @@
     <a href="/">Go now</a>
   </main>
 
-  <script>
-    // Show requested path
-    document.getElementById('path').textContent = location.pathname;
+<script>
+  document.getElementById('path').textContent = location.pathname;
 
-    // Countdown + redirect
-    let seconds = 5;
-    const counter = document.getElementById('count');
+  let seconds = 5;
+  const counter = document.getElementById('count');
+  const card = document.querySelector('.card');
 
-    const interval = setInterval(() => {
-      seconds--;
-      counter.textContent = seconds;
+  const interval = setInterval(() => {
+    seconds--;
+    counter.textContent = seconds;
 
-      if (seconds <= 0) {
-        clearInterval(interval);
+    if (seconds <= 0) {
+      clearInterval(interval);
+
+      // Trigger fade-out
+      card.classList.add('fade-out');
+
+      // Redirect after animation completes
+      setTimeout(() => {
         window.location.href = "/";
-      }
-    }, 1000);
-  </script>
+      }, 600);
+    }
+  }, 1000);
+</script>
 
 </body>
 </html>
