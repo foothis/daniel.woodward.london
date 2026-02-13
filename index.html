@@ -4,199 +4,696 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daniel Woodward | AI Presales & Solutions Architecture</title>
+
+  <!-- SEO -->
   <meta name="description" content="UK-based Presales Leader specialising in AI, Enterprise Solutions, Strategy & Consulting." />
+
+  <!-- Open Graph (social share preview) -->
   <meta property="og:title" content="Daniel Woodward" />
-  <meta property="og:description" content="Sales, Solutions Architecture, Consulting & Partnerships." />
+  <meta property="og:description" content="Sales · Solutions Architecture · AI · Consulting & Partnerships." />
   <meta property="og:type" content="website" />
+  <!-- Place this file at /assets/img/og-image.png (1200x630) -->
+  <meta property="og:image" content="https://daniel.woodward.london/assets/img/og-image.png" />
+
+  <!-- Favicons (placeholders – add files later) -->
+  <link rel="icon" href="/assets/favicon/favicon.ico" sizes="any">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+  <link rel="apple-touch-icon" href="/assets/favicon/apple-touch-icon.png">
+  <link rel="manifest" href="/assets/favicon/site.webmanifest">
+
+  <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <style>
-    :root {
-      --bg: #0f172a;
-      --card: #111827;
-      --accent: #6366f1;
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --border: #1f2937;
+    :root{
+      --bg:#0b1220;
+      --panel:#0f172a;
+      --card:#0b1326;
+      --border:#1f2a44;
+      --text:#f8fafc;
+      --muted:#a7b0c0;
+
+      --accent:#7c3aed;     /* violet */
+      --accent2:#22c55e;    /* green */
+      --accent3:#38bdf8;    /* sky */
+      --shadow: 0 18px 50px rgba(0,0,0,.35);
+      --radius:16px;
     }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.6;
+    *{ box-sizing:border-box; margin:0; padding:0; }
+    html{ scroll-behavior:smooth; }
+    body{
+      font-family:'Inter', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1100px 500px at 50% -80px, rgba(124,58,237,.25), transparent 60%),
+                  radial-gradient(900px 450px at 10% 20%, rgba(56,189,248,.12), transparent 55%),
+                  radial-gradient(900px 450px at 90% 30%, rgba(34,197,94,.10), transparent 55%),
+                  var(--bg);
+      color:var(--text);
       -webkit-font-smoothing: antialiased;
+      line-height:1.65;
     }
 
-    a { color: var(--accent); text-decoration: none; }
+    a{ color:inherit; text-decoration:none; }
+    a.link{ color: var(--accent3); text-decoration: underline; text-underline-offset: 3px; }
 
-    section {
-      padding: 80px 20px;
-      max-width: 1100px;
-      margin: auto;
+    .container{
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 20px;
     }
 
-    h1 { font-size: 3rem; font-weight: 800; }
-    h2 { font-size: 2rem; margin-bottom: 40px; }
-    h3 { font-size: 1.1rem; margin-bottom: 8px; }
-    p { color: var(--muted); }
-
-    .hero {
-      text-align: center;
-      padding: 140px 20px 100px;
-      background: radial-gradient(circle at 50% 0%, #1e293b 0%, #0f172a 70%);
+    /* Top nav */
+    .nav{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.55);
+      border-bottom: 1px solid rgba(31,42,68,.7);
     }
-
-    .hero p {
-      font-size: 1.2rem;
-      margin-top: 16px;
+    .nav-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      padding: 14px 0;
     }
-
-    .btn {
-      display: inline-block;
-      margin-top: 30px;
-      padding: 12px 24px;
-      border-radius: 8px;
-      background: var(--accent);
-      color: white;
-      font-weight: 600;
-      transition: 0.2s ease;
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight: 800;
+      letter-spacing: .2px;
     }
-
-    .btn:hover {
-      opacity: 0.85;
+    .dot{
+      width:10px; height:10px; border-radius:999px;
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      box-shadow: 0 0 0 4px rgba(124,58,237,.12);
     }
-
-    .grid {
-      display: grid;
-      gap: 30px;
+    .nav-links{
+      display:flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content:flex-end;
     }
-
-    .grid-2 { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); }
-    .grid-3 { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
-
-    .card {
-      background: var(--card);
-      padding: 25px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      transition: 0.2s ease;
-    }
-
-    .card:hover {
-      border-color: var(--accent);
-    }
-
-    .timeline {
-      border-left: 2px solid var(--border);
-      padding-left: 25px;
-    }
-
-    .timeline-item {
-      margin-bottom: 40px;
-    }
-
-    .muted { color: var(--muted); font-size: 0.9rem; }
-
-    footer {
-      text-align: center;
-      padding: 60px 20px;
-      border-top: 1px solid var(--border);
+    .pill{
+      font-size:.92rem;
       color: var(--muted);
-      font-size: 0.9rem;
+      border: 1px solid rgba(31,42,68,.9);
+      background: rgba(15,23,42,.45);
+      padding: 8px 12px;
+      border-radius: 999px;
+      transition: .18s ease;
+    }
+    .pill:hover{
+      color: var(--text);
+      border-color: rgba(124,58,237,.7);
+      transform: translateY(-1px);
     }
 
-    @media (max-width: 768px) {
-      h1 { font-size: 2.2rem; }
-      section { padding: 60px 20px; }
+    /* Hero */
+    .hero{
+      padding: 72px 0 40px;
+    }
+    .hero-card{
+      border: 1px solid rgba(31,42,68,.8);
+      background: linear-gradient(180deg, rgba(15,23,42,.75), rgba(11,19,38,.7));
+      border-radius: 22px;
+      padding: 42px 26px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 240px at 50% 0%, rgba(124,58,237,.22), transparent 65%);
+      pointer-events:none;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.3fr .7fr;
+      gap: 28px;
+      align-items: center;
+      position:relative;
+    }
+    .headline{
+      font-size: clamp(2.1rem, 4.2vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+    }
+    .subhead{
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 1.06rem;
+      max-width: 62ch;
+    }
+    .cta-row{
+      display:flex; flex-wrap:wrap;
+      gap: 12px;
+      margin-top: 22px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 12px;
+      border: 1px solid rgba(31,42,68,.9);
+      background: rgba(15,23,42,.6);
+      color: var(--text);
+      font-weight: 700;
+      transition: .18s ease;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(56,189,248,.75));
+      border-color: rgba(124,58,237,.55);
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      border-color: rgba(56,189,248,.7);
+      box-shadow: 0 12px 30px rgba(0,0,0,.25);
+    }
+    .mini{
+      padding: 12px 14px;
+      border-radius: 16px;
+      border: 1px solid rgba(31,42,68,.85);
+      background: rgba(11,19,38,.55);
+    }
+    .mini .kicker{
+      font-size: .85rem;
+      color: var(--muted);
+      margin-bottom: 6px;
+    }
+    .mini .big{
+      font-weight: 800;
+      font-size: 1.02rem;
+    }
+
+    /* Sections */
+    section{
+      padding: 36px 0;
+    }
+    .section-title{
+      display:flex; align-items:baseline; justify-content:space-between;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+    h2{
+      font-size: 1.35rem;
+      letter-spacing: -0.01em;
+    }
+    .hint{
+      color: var(--muted);
+      font-size: .92rem;
+    }
+
+    /* Two-column layouts */
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+    }
+
+    /* Card */
+    .card{
+      border: 1px solid rgba(31,42,68,.85);
+      background: rgba(11,19,38,.60);
+      border-radius: var(--radius);
+      padding: 18px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.18);
+    }
+    .card p{ color: var(--muted); }
+
+    /* Experience Timeline (interactive) */
+    .timeline{
+      display:grid;
+      grid-template-columns: 140px 1fr;
+      gap: 16px;
+      align-items:start;
+    }
+    .rail{
+      position: relative;
+      padding-top: 6px;
+    }
+    .rail::before{
+      content:"";
+      position:absolute;
+      left: 10px;
+      top: 6px;
+      bottom: 6px;
+      width: 2px;
+      background: rgba(31,42,68,.9);
+    }
+
+    .nodes{
+      display:flex;
+      flex-direction:column;
+      gap: 10px;
+      position: relative;
+    }
+    .node-btn{
+      display:flex;
+      align-items:center;
+      gap: 10px;
+      padding: 10px 10px;
+      border-radius: 12px;
+      border: 1px solid rgba(31,42,68,.85);
+      background: rgba(15,23,42,.45);
+      color: var(--muted);
+      cursor:pointer;
+      transition: .18s ease;
+      text-align:left;
+    }
+    .node-btn:hover{
+      color: var(--text);
+      border-color: rgba(56,189,248,.55);
+      transform: translateY(-1px);
+    }
+    .pin{
+      width: 12px; height: 12px; border-radius: 999px;
+      background: rgba(148,163,184,.35);
+      outline: 6px solid rgba(124,58,237,.10);
+      flex: 0 0 auto;
+      position: relative;
+      margin-left: 6px;
+    }
+    .node-btn.active .pin{
+      background: linear-gradient(135deg, var(--accent), var(--accent3));
+      outline-color: rgba(56,189,248,.18);
+      animation: pulse 1.3s ease-in-out infinite;
+    }
+    @keyframes pulse{
+      0%,100%{ box-shadow: 0 0 0 0 rgba(56,189,248,.0); }
+      50%{ box-shadow: 0 0 0 10px rgba(56,189,248,.12); }
+    }
+
+    .node-meta{
+      display:flex;
+      flex-direction:column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .node-role{
+      font-weight: 700;
+      font-size: .92rem;
+      color: var(--text);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .node-years{
+      font-size: .82rem;
+      color: var(--muted);
+    }
+
+    .detail{
+      border: 1px solid rgba(31,42,68,.85);
+      background: rgba(15,23,42,.42);
+      border-radius: 14px;
+      padding: 14px;
+      overflow: hidden;
+
+      /* collapse animation */
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-6px);
+      transition: max-height .35s ease, opacity .25s ease, transform .25s ease;
+    }
+    .detail.open{
+      max-height: 420px; /* enough for our content */
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .detail h3{
+      font-size: 1.02rem;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .detail .meta{
+      color: var(--muted);
+      font-size: .92rem;
+      margin-bottom: 10px;
+    }
+    .bullets{
+      margin-left: 18px;
+      color: var(--muted);
+    }
+    .bullets li{ margin: 6px 0; }
+
+    /* Expertise + Awards grid items */
+    .chips{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 10px;
+      margin-top: 6px;
+    }
+    .chip{
+      padding: 10px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(31,42,68,.85);
+      background: rgba(15,23,42,.45);
+      color: var(--text);
+      font-weight: 650;
+      font-size: .92rem;
+      transition: .18s ease;
+    }
+    .chip:hover{
+      border-color: rgba(124,58,237,.7);
+      transform: translateY(-1px);
+    }
+
+    .award-grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin-top: 6px;
+    }
+    .award{
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(31,42,68,.85);
+      background: rgba(15,23,42,.38);
+      transition: .18s ease;
+    }
+    .award:hover{
+      border-color: rgba(34,197,94,.65);
+      transform: translateY(-1px);
+    }
+    .award .t{ font-weight: 800; }
+    .award .s{ color: var(--muted); font-size:.92rem; margin-top:4px; }
+
+    /* Contact */
+    .contact-row{
+      display:flex; flex-wrap:wrap; gap: 12px;
+      margin-top: 12px;
+    }
+
+    /* Responsive */
+    @media (max-width: 920px){
+      .hero-grid{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+      .timeline{ grid-template-columns: 1fr; }
+      .rail::before{ display:none; }
+      .pin{ margin-left: 0; }
     }
   </style>
 </head>
-<body>
 
-  <div class="hero">
-    <h1>Daniel Woodward</h1>
-    <p>Sales · Solutions Architecture · AI · Consulting & Partnerships</p>
-    <a href="https://www.linkedin.com/in/dpwoodward/" class="btn" target="_blank">Connect on LinkedIn</a>
+<body>
+  <!-- Nav -->
+  <div class="nav">
+    <div class="container">
+      <div class="nav-inner">
+        <div class="brand">
+          <span class="dot"></span>
+          <span>Daniel Woodward</span>
+        </div>
+        <div class="nav-links">
+          <a class="pill" href="#profile">Profile</a>
+          <a class="pill" href="#expertise">Expertise</a>
+          <a class="pill" href="#awards">Awards</a>
+          <a class="pill" href="#contact">Contact</a>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <section>
-    <h2>About</h2>
-    <p>
-      UK-based Presales Leader specialising in AI, enterprise solution architecture, and strategic consulting.
-      I partner with global organisations to translate complex technology into tangible business outcomes,
-      bridging sales, product, and customer success to drive growth and innovation.
-    </p>
-  </section>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="container">
+      <div class="hero-card">
+        <div class="hero-grid">
+          <div>
+            <div class="headline">Sales, Solutions Architecture, AI, Consulting & Partnerships</div>
+            <div class="subhead">
+              UK-based presales leader focused on turning complex platforms into clear business outcomes—spanning enterprise architecture,
+              transformation, executive workshops, and discovery-led selling.
+            </div>
 
-  <section>
-    <h2>Experience</h2>
-    <div class="timeline">
-      <div class="timeline-item">
-        <h3>Senior Solutions Consultant – IBM (Apptio)</h3>
-        <div class="muted">2024 – Present</div>
+            <div class="cta-row">
+              <a class="btn primary" href="https://www.linkedin.com/in/dpwoodward/" target="_blank" rel="noreferrer">
+                LinkedIn ↗
+              </a>
+              <a class="btn" href="#contact">Get in touch</a>
+              <a class="btn" href="#profile">View profile</a>
+            </div>
+          </div>
+
+          <div class="mini">
+            <div class="kicker">Currently</div>
+            <div class="big">Senior Solutions Consultant @ IBM (Apptio)</div>
+            <div class="kicker" style="margin-top:10px;">Focus</div>
+            <div class="big">Enterprise value, transformation, strategy</div>
+          </div>
+        </div>
       </div>
-      <div class="timeline-item">
-        <h3>Enterprise Solutions Architect – Quantive</h3>
-        <div class="muted">2021 – 2024</div>
-      </div>
-      <div class="timeline-item">
-        <h3>Global Strategic Accounts Consultant – Sprinklr</h3>
-        <div class="muted">2016 – 2020</div>
-      </div>
-      <div class="timeline-item">
-        <h3>Director & Freelance Consultant – Lupine Consulting</h3>
-        <div class="muted">2014 – Present</div>
+    </div>
+  </div>
+
+  <!-- About + Experience (two columns) -->
+  <section id="profile">
+    <div class="container">
+      <div class="two-col">
+        <!-- About -->
+        <div class="card">
+          <div class="section-title">
+            <h2>About</h2>
+            <div class="hint">Clear, credible, outcome-led</div>
+          </div>
+          <p>
+            I specialise in enterprise presales and solution architecture, bringing together technical depth and commercial clarity.
+            I’m at my best running discovery, aligning stakeholders, and translating AI/technology capabilities into measurable value.
+          </p>
+          <p style="margin-top:12px;">
+            My background spans CXM, messaging, enterprise platforms, and global consulting — with a track record in complex, multi-stakeholder deals.
+          </p>
+        </div>
+
+        <!-- Experience (Interactive Timeline) -->
+        <div class="card">
+          <div class="section-title">
+            <h2>Experience</h2>
+            <div class="hint">Click to expand</div>
+          </div>
+
+          <div class="timeline" aria-label="Experience timeline">
+            <div class="rail">
+              <div class="nodes" role="tablist" aria-label="Roles">
+                <button class="node-btn" data-target="exp-1" role="tab" aria-controls="exp-1">
+                  <span class="pin"></span>
+                  <span class="node-meta">
+                    <span class="node-role">IBM (Apptio)</span>
+                    <span class="node-years">2024 – Present</span>
+                  </span>
+                </button>
+
+                <button class="node-btn" data-target="exp-2" role="tab" aria-controls="exp-2">
+                  <span class="pin"></span>
+                  <span class="node-meta">
+                    <span class="node-role">Quantive (Gtmhub)</span>
+                    <span class="node-years">2021 – 2024</span>
+                  </span>
+                </button>
+
+                <button class="node-btn" data-target="exp-3" role="tab" aria-controls="exp-3">
+                  <span class="pin"></span>
+                  <span class="node-meta">
+                    <span class="node-role">Lupine Consulting</span>
+                    <span class="node-years">2014 – Present</span>
+                  </span>
+                </button>
+
+                <button class="node-btn" data-target="exp-4" role="tab" aria-controls="exp-4">
+                  <span class="pin"></span>
+                  <span class="node-meta">
+                    <span class="node-role">Presales Collective</span>
+                    <span class="node-years">2020 – Present</span>
+                  </span>
+                </button>
+
+                <button class="node-btn" data-target="exp-5" role="tab" aria-controls="exp-5">
+                  <span class="pin"></span>
+                  <span class="node-meta">
+                    <span class="node-role">Sprinklr</span>
+                    <span class="node-years">2016 – 2020</span>
+                  </span>
+                </button>
+              </div>
+            </div>
+
+            <div>
+              <!-- Details (expand/collapse) -->
+              <div id="exp-1" class="detail" role="tabpanel">
+                <h3>Senior Solutions Consultant — IBM (Apptio)</h3>
+                <div class="meta">Value consulting · Transformation · Enterprise stakeholders</div>
+                <ul class="bullets">
+                  <li>Lead discovery, positioning, and executive alignment for enterprise outcomes.</li>
+                  <li>Translate technical capability into quantified value narratives and adoption plans.</li>
+                  <li>Partner across sales/product to de-risk complex stakeholder journeys.</li>
+                </ul>
+              </div>
+
+              <div id="exp-2" class="detail" role="tabpanel">
+                <h3>Enterprise Solutions Architect — Quantive (formerly Gtmhub)</h3>
+                <div class="meta">OKRs · Strategy execution · Enterprise architecture</div>
+                <ul class="bullets">
+                  <li>Architected enterprise solutions and ran outcome-driven workshops.</li>
+                  <li>Supported complex, multi-team rollouts with measurable success criteria.</li>
+                  <li>Owned technical win strategy across strategic opportunities.</li>
+                </ul>
+              </div>
+
+              <div id="exp-3" class="detail" role="tabpanel">
+                <h3>Director & Freelance Consultant — Lupine Consulting</h3>
+                <div class="meta">Consulting · Architecture · Delivery leadership</div>
+                <ul class="bullets">
+                  <li>Advisory and delivery across digital platforms and customer experience.</li>
+                  <li>Discovery-to-delivery support: requirements, architecture, implementation.</li>
+                  <li>Flexible engagements: workshops, strategy, enablement, and build support.</li>
+                </ul>
+              </div>
+
+              <div id="exp-4" class="detail" role="tabpanel">
+                <h3>Member — Presales Collective</h3>
+                <div class="meta">Community · Best practice · Mentorship</div>
+                <ul class="bullets">
+                  <li>Ongoing development and peer network across modern presales practices.</li>
+                </ul>
+              </div>
+
+              <div id="exp-5" class="detail" role="tabpanel">
+                <h3>Global Strategic Accounts Consultant — Sprinklr</h3>
+                <div class="meta">CXM · Messaging · Global transformation</div>
+                <ul class="bullets">
+                  <li>Led strategic presales and delivery support for enterprise global accounts.</li>
+                  <li>Recognised for performance and impact through multiple awards.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div style="margin-top:12px; color: var(--muted); font-size:.92rem;">
+            Want this timeline to include role summaries pulled straight from LinkedIn? We can tighten wording per role.
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- Expertise + Awards (two columns) -->
   <section>
-    <h2>Core Expertise</h2>
-    <div class="grid grid-3">
-      <div class="card">AI & Machine Learning Strategy</div>
-      <div class="card">Enterprise Architecture</div>
-      <div class="card">Strategic Presales</div>
-      <div class="card">CX & Digital Transformation</div>
-      <div class="card">Executive Workshops</div>
-      <div class="card">Solution Consulting</div>
+    <div class="container">
+      <div class="two-col">
+        <!-- Expertise -->
+        <div id="expertise" class="card">
+          <div class="section-title">
+            <h2>Core Expertise</h2>
+            <div class="hint">Hover chips</div>
+          </div>
+
+          <div class="chips" aria-label="Core expertise">
+            <div class="chip">AI & ML Strategy</div>
+            <div class="chip">Enterprise Architecture</div>
+            <div class="chip">Discovery & Value</div>
+            <div class="chip">Executive Workshops</div>
+            <div class="chip">Transformation</div>
+            <div class="chip">Solution Consulting</div>
+            <div class="chip">Messaging & CXM</div>
+            <div class="chip">Enablement & Coaching</div>
+          </div>
+
+          <p style="margin-top:14px;">
+            I focus on clarity: aligning stakeholders, mapping outcomes to capability, and building win strategies that survive real procurement.
+          </p>
+        </div>
+
+        <!-- Awards -->
+        <div id="awards" class="card">
+          <div class="section-title">
+            <h2>Awards & Recognition</h2>
+            <div class="hint">Selected</div>
+          </div>
+
+          <div class="award-grid">
+            <div class="award">
+              <div class="t">Presales of the Year</div>
+              <div class="s">Sprinklr · Global Sales Awards (2016)</div>
+            </div>
+            <div class="award">
+              <div class="t">President’s Club</div>
+              <div class="s">Sprinklr · 2017 & 2020</div>
+            </div>
+            <div class="award">
+              <div class="t">Guiding Principles Award</div>
+              <div class="s">Quantive · Q1 2023 & Q3 2023</div>
+            </div>
+            <div class="award">
+              <div class="t">Quarterly Global Pre-Sales Awards</div>
+              <div class="s">Sprinklr · Q4 2016 & Q2 2019</div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <section>
-    <h2>Awards & Recognition</h2>
-    <div class="grid grid-2">
+  <!-- Contact -->
+  <section id="contact">
+    <div class="container">
       <div class="card">
-        <h3>Presales of the Year</h3>
-        <div class="muted">Sprinklr Global Sales Awards</div>
+        <div class="section-title">
+          <h2>Get in touch</h2>
+          <div class="hint">Fastest: LinkedIn DM</div>
+        </div>
+
+        <p>
+          Email: <a class="link" href="mailto:daniel@woodward.london">daniel@woodward.london</a><br/>
+          Phone: <a class="link" href="tel:+447896504471">+44 7896 504 471</a>
+        </p>
+
+        <div class="contact-row">
+          <a class="btn primary" href="https://www.linkedin.com/in/dpwoodward/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+          <a class="btn" href="mailto:daniel@woodward.london">Email</a>
+          <a class="btn" href="#profile">Back to top</a>
+        </div>
       </div>
-      <div class="card">
-        <h3>President’s Club</h3>
-        <div class="muted">Sprinklr (2017, 2020)</div>
-      </div>
-      <div class="card">
-        <h3>Guiding Principles Award</h3>
-        <div class="muted">Quantive</div>
-      </div>
-      <div class="card">
-        <h3>Quarterly Global Pre-Sales Awards</h3>
-        <div class="muted">Sprinklr</div>
+
+      <div style="text-align:center; margin-top:22px; color:var(--muted); font-size:.92rem;">
+        © <span id="year"></span> Daniel Woodward · Built on GitHub Pages
       </div>
     </div>
   </section>
 
-  <section>
-    <h2>Get In Touch</h2>
-    <p>Email: <a href="mailto:daniel@woodward.london">daniel@woodward.london</a></p>
-    <p>Phone: +44 (0) 7896 504 471</p>
-  </section>
+  <script>
+    // Footer year
+    document.getElementById('year').textContent = new Date().getFullYear();
 
-  <footer>
-    © 2026 Daniel Woodward · Built with GitHub Pages
-  </footer>
+    // Interactive Experience Timeline
+    const buttons = Array.from(document.querySelectorAll('.node-btn'));
+    const panels = Array.from(document.querySelectorAll('.detail'));
 
+    function openPanel(targetId) {
+      // Close all
+      panels.forEach(p => p.classList.remove('open'));
+      buttons.forEach(b => b.classList.remove('active'));
+
+      // Open selected
+      const btn = buttons.find(b => b.dataset.target === targetId);
+      const panel = document.getElementById(targetId);
+      if (!panel || !btn) return;
+
+      btn.classList.add('active');
+      panel.classList.add('open');
+    }
+
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => openPanel(btn.dataset.target));
+    });
+
+    // Open first by default
+    if (buttons.length) openPanel(buttons[0].dataset.target);
+  </script>
 </body>
 </html>
